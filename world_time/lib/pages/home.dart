@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
         child: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage('assets/day.png'),
+            image: AssetImage('assets/$bgImage'),
             fit: BoxFit.cover,
           )),
           child: Padding(
@@ -32,12 +32,7 @@ class _HomeState extends State<Home> {
                 onPressed: () async{
                   dynamic result = await Navigator.pushNamed(context, '/location');
                   setState((){
-                    data = {
-                      'time':result['time'],
-                      'location': result['location'],
-                      'isDaytime': result['isDayTime'],
-                      'flag': result['flag'],
-                    };
+                    data = result;
                   });
 
                 },
